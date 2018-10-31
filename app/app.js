@@ -4,7 +4,8 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.dashboardView',
-  'myApp.fileUploadDirective',
+  'myApp.filmService',
+  'myApp.fileUploadDirective'
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

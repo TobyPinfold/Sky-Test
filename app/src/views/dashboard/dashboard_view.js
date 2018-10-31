@@ -9,17 +9,18 @@ angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective'])
     });
   }])
 
-  .controller('View1Ctrl', ['$scope', function ($scope) {
+  .controller('View1Ctrl', ['$scope', 'FilmService', function ($scope, FilmService) {
 
-    $scope.agitatedCalmSlider = 50;
-    $scope.happySadSlider = 50;
-    $scope.tiredWideAwakeSlider = 50;
-    $scope.scaredFearlessSlider = 50;
+    $scope.agitatedCalmSlider = 5;
+    $scope.happySadSlider = 5;
+    $scope.tiredWideAwakeSlider = 5;
+    $scope.scaredFearlessSlider = 5;
     $scope.showUploadDropDown = false;
 
     $scope.setMoodCards = function () {
       console.log($scope.agitatedCalmSlider);
     };
+
 
     $scope.$on('fileUploadDirective:fileUploadComplete', function () {
       $scope.showUploadDropDown = false;
