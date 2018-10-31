@@ -1,3 +1,13 @@
+@font-face {
+    font-family: sky-regular;
+    src: url(sansation_light.woff);
+}
+
+@font-face {
+    font-family: sky-regular;
+    src: url(sansation_light.woff);
+}
+
 /* app css stylesheet */
 #wrapper {
     height: 90%;
@@ -5,6 +15,14 @@
     margin: auto;
     padding: 20px;
 
+}
+
+h1, h2, h3, h4, h5  {
+    font-family: 'sky_textregular', arial;
+}
+
+p {
+    font-family: 'sky_textregular', arial
 }
 
 .center {
