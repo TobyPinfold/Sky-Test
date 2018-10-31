@@ -1,38 +1,30 @@
-@font-face {
-    font-family: sky-regular;
-    src: url(sansation_light.woff);
+.app-toolkit .top-bar {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 1px 10px 0 rgba(0,0,0,.2);
+    z-index: 100;
 }
 
-@font-face {
-    font-family: sky-regular;
-    src: url(sansation_light.woff);
-}
-
-/* app css stylesheet */
-#wrapper {
-    height: 90%;
-    width:  90%;
-    margin: auto;
-    padding: 20px;
-
-}
-
-h1, h2, h3, h4, h5  {
-    font-family: 'sky_textregular', arial;
-}
-
-p {
-    font-family: 'sky_textregular', arial
-}
-
-.center {
+.text-center {
     text-align: center;
-    vertical-align: middle;
-    display: table-cell;
 }
 
-h4 {
+.slider {
+    width: 100%;
+}
+
+#content {
+    padding: 40px;
+    margin: 10px auto;
+}
+
+.title {
+    font-size: 30px;
     text-align: center;
+    color: #4a4a4a;
 }
 
 .error-message {
@@ -45,24 +37,9 @@ h4 {
 }
 
 .upload-field > input {
-    float: center !important;
-    position: absolute;
-    top:0;
-    opacity: 0;
-}
-
-.card {
-    box-shadow: 0px 1px 5px rgba(0,0,0,0.2), -1px 1px 5px rgba(0,0,0,0.2);
-}
-
-.centerText {
-    text-align: center;
-}
-
-.sliderContainer {
-    padding: 10px;
-}
-
-.slider {
+    top: 0;
     width: 100%;
+    left: 0;
+    position: absolute;
+    opacity: 0;
 }

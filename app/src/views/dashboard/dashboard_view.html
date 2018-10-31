@@ -1,120 +1,117 @@
 <div ng-controller="View1Ctrl">
-
-    <!-- Heading -->
-    <div class="container" id="Heading">
-        <div class="row">
-            <div class="col-2">
-                <img src="https://www.sky.com/assets/masthead/images/sky-logo.png" alt="Image">
-            </div>
-            <div class="col-10">
-                <div class="row">
-                    <div class="container-fluid p-1">
-                        <h1 class="centerText"> Title Bar </h1>
+    <div class="app-toolkit">
+        <header class="top-bar">
+            <div class="o-container o-container--wide">
+                <div class="o-layout o-layout--middle">
+                    <div class="o-layout__item u-width-1/3">
+                        <img class="logo" src="https://www.sky.com/assets/masthead/images/sky-logo.png" alt="Image">
+                    </div>
+                    <div class="o-layout__item u-width-2/3">
+                        <div class="o-layout">
+                            <div class="o-layout__item">
+                                <h1 class="title"> Moodslider </h1>
+                            </div>
+                            <div class="c-divider"></div>
+                            <div class="o-layout__item o-layout">
+                                Moodslider | <file-upload></file-upload>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row p-3 border-top">
-                    Moodslider | &nbsp <file-upload></file-upload>
+            </div>
+        </header>
+ 
+        <section id="content" class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+            <div class="c-tile__content">
+                <div class="o-container">
+                    <div class="o-layout o-layout--middle">
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Agitated</p>
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <input type="range" min="0" max="100" class="slider" ng-model="agitatedCalmSlider">
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Calm</p>
+                        </div>
+                    </div>
+                    <div class="o-layout o-layout--middle">
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Agitated</p>
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <input type="range" min="0" max="100" class="slider" ng-model="agitatedCalmSlider">
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Calm</p>
+                        </div>
+                    </div>
+                    <div class="o-layout o-layout--middle">
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Agitated</p>
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <input type="range" min="0" max="100" class="slider" ng-model="agitatedCalmSlider">
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Calm</p>
+                        </div>
+                    </div>
+                    <div class="o-layout o-layout--middle">
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Agitated</p>
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <input type="range" min="0" max="100" class="slider" ng-model="agitatedCalmSlider">
+                        </div>
+                        <div class="o-layout__item u-width-1/3">
+                            <p class="text-center">Calm</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <div class="o-container">
+                <div class="o-layout o-layout--center o-layout--middle o-layout--spaced">
+                    <div class="o-layout__item u-width-1/5 u-padding-all">
+                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                            <img src="assets/images/12_years_a_slave.jpg">
+                            <div class="c-divider"></div>
+                            <p> temp text </p>
+                        </div>
+                    </div>
+                    <div class="o-layout__item u-width-1/5 u-padding-all">
+                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                            <img src="assets/images/elf.jpg">
+                            <div class="c-divider"></div>
+                            <p> temp text </p>
+                        </div>
+                    </div>
+                    <div class="o-layout__item u-width-1/5 u-padding-all">
+                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                            <img src="assets/images/forrest_gump.jpg">
+                            <div class="c-divider"></div>
+                            <p> temp text </p>
+                        </div>
+                    </div>
+                    <div class="o-layout__item u-width-1/5 u-padding-all">
+                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                            <img src="assets/images/gladiator.jpg">
+                            <div class="c-divider"></div>
+                            <p> temp text </p>
+                        </div>
+                    </div>
+                    <div class="o-layout__item u-width-1/5 u-padding-all">
+                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                            <img src="assets/images/home_alone.jpg">
+                            <div class="c-divider"></div>
+                            <p> temp text </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <!-- Controls -->
-    <div class="container p-3" id="Controls">
-        <div class="row sliderContainer">
-            <div class="col-2">
-                <p class="text-center">Agitated</p>
-            </div>
-            <div class="col-8">
-                <input type="range" min="0" max="100" class="slider" ng-model="agitatedCalmSlider">
-            </div>
-            <div class="col-2">
-                <p class="text-center">Calm</p>
-            </div>
-        </div>
-        <div class="row sliderContainer">
-            <div class="col-2">
-                <p class="text-center">Happy</p>
-            </div>
-
-            <div class="col-8">
-                <input type="range" min="0" max="100" class="slider" ng-model="happySadSlider" ng-change="setMoodCards()">
-            </div>
-            <div class="col-2">
-                <p class="text-center">Sad</p>
-            </div>
-        </div>
-        <div class="row sliderContainer">
-            <div class="col-2">
-                <p class="text-center">Tired</p>
-            </div>
-            <div class="col-8">
-                <input type="range" min="0" max="100" class="slider" ng-model="tiredWideAwakeSlider">
-            </div>
-            <div class="col-2">
-                <p class="text-center">Wide Awake</p>
-            </div>
-        </div>
-        <div class="row sliderContainer">
-            <div class="col-2">
-                <p class="text-center">Scared</p>
-            </div>
-            <div class="col-8">
-                <input type="range" min="0" max="100" class="slider" ng-model="scaredFearlessSlider">
-            </div>
-            <div class="col-2">
-                <p class="text-center">Fearless</p>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Cards -->
-    <div class="container" id="Cards">
-        <div class="row justify-content-md-center">
-            <div class="col-2">
-                <div class="card">
-                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
-                        class="img-fluid" alt="">
-                    <p>{{scaredFearlessSlider}}</p>
-                </div>
-            </div>
-
-            <div class="col-2">
-                <div class="card">
-                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
-                        class="img-fluid" alt="">
-                    <h5>Text</h5>
-
-                </div>
-            </div>
-
-            <div class="col-2">
-                <div class="card">
-                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
-                        class="img-fluid" alt="">
-                    <h5>Text</h5>
-
-                </div>
-            </div>
-
-            <div class="col-2">
-                <div class="card">
-                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
-                        class="img-fluid" alt="">
-                    <h5>Text</h5>
-
-                </div>
-            </div>
-
-            <div class="col-2">
-                <div class="card">
-                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
-                        class="img-fluid" alt="">
-                    <h5>Text</h5>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
