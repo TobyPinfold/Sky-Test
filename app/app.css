@@ -1,0 +1,50 @@
+/* app css stylesheet */
+#wrapper {
+    height: 90%;
+    width:  90%;
+    margin: auto;
+    padding: 20px;
+
+}
+
+.center {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+h4 {
+    text-align: center;
+}
+
+.error-message {
+    font-size: 15px;
+    color: rgb(165, 58, 58);
+}
+
+.upload-field {
+    position: relative;
+}
+
+.upload-field > input {
+    float: center !important;
+    position: absolute;
+    top:0;
+    opacity: 0;
+}
+
+.card {
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.2), -1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.centerText {
+    text-align: center;
+}
+
+.sliderContainer {
+    padding: 10px;
+}
+
+.slider {
+    width: 100%;
+}

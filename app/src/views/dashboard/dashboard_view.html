@@ -1,0 +1,120 @@
+<div ng-controller="View1Ctrl">
+
+    <!-- Heading -->
+    <div class="container" id="Heading">
+        <div class="row">
+            <div class="col-2">
+                <img width="100px" src="https://www.sky.com/assets/masthead/images/sky-logo.png" alt="Image">
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="container-fluid p-1">
+                        <h1 class="centerText"> Title Bar </h1>
+                    </div>
+                </div>
+                <div class="row p-3 border-top">
+                    Moodslider | &nbsp <file-upload></file-upload>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Controls -->
+    <div class="container p-3" id="Controls">
+        <div class="row sliderContainer">
+            <div class="col-2">
+                <p class="text-center">Agitated</p>
+            </div>
+            <div class="col-8">
+                <input type="range" min="0" max="100" class="slider" ng-model="agitatedCalmSlider">
+            </div>
+            <div class="col-2">
+                <p class="text-center">Calm</p>
+            </div>
+        </div>
+        <div class="row sliderContainer">
+            <div class="col-2">
+                <p class="text-center">Happy</p>
+            </div>
+
+            <div class="col-8">
+                <input type="range" min="0" max="100" class="slider" ng-model="happySadSlider" ng-change="setMoodCards()">
+            </div>
+            <div class="col-2">
+                <p class="text-center">Sad</p>
+            </div>
+        </div>
+        <div class="row sliderContainer">
+            <div class="col-2">
+                <p class="text-center">Tired</p>
+            </div>
+            <div class="col-8">
+                <input type="range" min="0" max="100" class="slider" ng-model="tiredWideAwakeSlider">
+            </div>
+            <div class="col-2">
+                <p class="text-center">Wide Awake</p>
+            </div>
+        </div>
+        <div class="row sliderContainer">
+            <div class="col-2">
+                <p class="text-center">Scared</p>
+            </div>
+            <div class="col-8">
+                <input type="range" min="0" max="100" class="slider" ng-model="scaredFearlessSlider">
+            </div>
+            <div class="col-2">
+                <p class="text-center">Fearless</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Cards -->
+    <div class="container" id="Cards">
+        <div class="row justify-content-md-center">
+            <div class="col-2">
+                <div class="card">
+                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
+                        class="img-fluid" alt="">
+                    <p>{{scaredFearlessSlider}}</p>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="card">
+                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
+                        class="img-fluid" alt="">
+                    <h5>Text</h5>
+
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="card">
+                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
+                        class="img-fluid" alt="">
+                    <h5>Text</h5>
+
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="card">
+                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
+                        class="img-fluid" alt="">
+                    <h5>Text</h5>
+
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="card">
+                    <img src="https://www.webfx.com/blog/images/cdn.designinstruct.com/files/582-how-to-image-placeholders/generic-image-placeholder.png"
+                        class="img-fluid" alt="">
+                    <h5>Text</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
