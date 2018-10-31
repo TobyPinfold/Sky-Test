@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<programme-data>
+	<title>Programme Data</title>
+	<programme id="1">
+		<name>12 Years a Slave</name>
+		<image-path>assets/images/12_years_a_slave.jpg</image-path>
+		<agitated-calm>5</agitated-calm>
+		<happy-sad>7</happy-sad>
+		<tired-wideawake>4</tired-wideawake>
+		<scared-fearless>5</scared-fearless>
+	</programme>
+	<programme id="2">
+		<name>A dogs purpose</name>
+		<image-path>assets/images/a_dogs_purpose.jpg</image-path>
+		<agitated-calm>6</agitated-calm>
+		<happy-sad>7</happy-sad>
+		<tired-wideawake>5</tired-wideawake>
+		<scared-fearless>1</scared-fearless>
+	</programme>
+	<programme id="4">
+		<name>A Knights Tale</name>
+		<image-path>assets/images/a_knights_tale.jpg</image-path>
+		<agitated-calm>7</agitated-calm>
+		<happy-sad>3</happy-sad>
+		<tired-wideawake>4</tired-wideawake>
+		<scared-fearless>2</scared-fearless>
+	</programme>
+</programme-data>

@@ -25,6 +25,8 @@
             <tired-wideawake>4</tired-wideawake>
             <scared-fearless>2</scared-fearless>
     </programme>
+</programme>
+
     <programme id="5">
             <name>blades of glory</name>
             <image-path>assets/images/blades_of_glory.jpg</image-path>

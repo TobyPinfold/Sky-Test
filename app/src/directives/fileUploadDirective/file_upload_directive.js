@@ -13,16 +13,14 @@ angular.module('myApp.fileUploadDirective', ['myApp.filmService'])
                     $scope.$apply(function () {
                         var file = document.getElementById('fileInputBox').files[0];
 
-                        if (file.type !== 'text/xml') {
-
-                            $scope.error = file.name + " is not an xml document";
-
-                        } else {
-
-                            $scope.error = null;
-                            $scope.filename = file.name;
-                            
-                            filmService.storeFilms(file);
+                        if(file !== null){
+                            if (file.type !== 'text/xml') {
+                                $scope.error = file.name + " is not an xml document";
+                            } else {
+                                $scope.error = null;
+                                $scope.filename = file.name;
+                                filmService.storeFilms(file);
+                            }
                         }
                     });
                 });

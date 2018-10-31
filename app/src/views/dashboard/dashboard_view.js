@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective'])
+angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective', 'myApp.filmService'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/dashboard', {
@@ -9,7 +9,10 @@ angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective'])
     });
   }])
 
-  .controller('View1Ctrl', ['$scope', 'FilmService', function ($scope, FilmService) {
+  .controller('View1Ctrl', ['$scope', 'FilmService','$interval', function ($scope, filmService, $interval) {
+    
+    var displayedFilms = [];
+    $scope.allFilms = {};
 
     $scope.agitatedCalmSlider = 5;
     $scope.happySadSlider = 5;
@@ -21,6 +24,10 @@ angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective'])
       console.log($scope.agitatedCalmSlider);
     };
 
+    $scope.$on('filmService updatedFilms', function(scope, val) {
+      $scope.allFilms = val;
+
+    });
 
     $scope.$on('fileUploadDirective:fileUploadComplete', function () {
       $scope.showUploadDropDown = false;
