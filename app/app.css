@@ -12,7 +12,15 @@ body {
     overflow-x: visible !important;
 }
 
-.custom-card-height {
+.custom-card {
+    height: 250px !important;
+}
+
+.potrait {
+    padding-top: 150%;
+}
+
+.custom-card {
     height: 250px !important;
 }
 
