@@ -4,27 +4,24 @@ angular.module('myApp.filmService', [])
   .service('FilmService', [ '$rootScope', '$interval', function($rootScope, $interval) {
 
     this.films = {};
-    var bruh = "it can rach me";
 
     this.storeFilms = (file) => {
-        this.readFileContents(file)
+
+        readFileContents(file)
             .then((fileContents) => {
-                parseXMLtoJSON(fileContents).then((parsedFileAsJson) => {
-                    if(parsedFileAsJson !== null) {
-                        this.films = parsedFileAsJson;
-                        $rootScope.$broadcast('filmService updatedFilms', this.films);
-                    }
-                    console.log(this.films);
+
+                parseXMLtoJSON(fileContents)
+                    .then((parsedFileAsJson) => {
+
+                        if(parsedFileAsJson !== null) {
+                            this.films = convertJSONtoFilmModels(parsedFileAsJson);
+                            $rootScope.$broadcast('filmService updatedFilms', this.films);
+                         }
                 });
             });
     };
 
-    $rootScope.$watch(this.films, (n, o)=>{
-        console.log(n, o);
-    });
-
-
-    this.readFileContents = (file) => {
+    function readFileContents(file) {
         var fileReader = new FileReader();
         return new Promise((resolve, reject) => {
             fileReader.onload = function() {
@@ -33,8 +30,6 @@ angular.module('myApp.filmService', [])
             fileReader.readAsText(file);
         });
     }
-
-
 
     function parseXMLtoJSON(file) {
         var xmlParser = new X2JS();
@@ -56,5 +51,31 @@ angular.module('myApp.filmService', [])
 
         });
     }
+
+    function convertJSONtoFilmModels(parsedFileAsJson) {
+        var jsonListOfFilms = parsedFileAsJson["programme-data"]["programme"];
+        var jsonListOfFilmsKeys = Object.keys(jsonListOfFilms);
+
+        var filmModels = {};
+
+        for(var index = 0; index < jsonListOfFilmsKeys.length; index++) {
+            var id = jsonListOfFilmsKeys[index];
+            var jsonFilm = jsonListOfFilms[id];
+            var filmModel = new FilmModel();
+
+            filmModel.setId(jsonListOfFilmsKeys[index]);
+            filmModel.setName(jsonFilm["name"]);
+            filmModel.setImagePath(jsonFilm["image-path"]);
+            filmModel.setAgitatedCalmValue(jsonFilm["agitated-calm"]);
+            filmModel.setTiredWideAwakeValue(jsonFilm["tired-wideawake"]);
+            filmModel.setScaredFearlessValue(jsonFilm["scared-fearless"]);
+            filmModel.setHappySadValue(jsonFilm["happy-sad"]);
+
+            filmModels[id] = filmModel;
+        }
+        console.log(filmModels);
+        return filmModels;
+    }
+
     return this;
 }]);

@@ -23,94 +23,36 @@
  
         <section id="content" class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
             <div class="c-tile__content">
-                {{allFilms}}
-                <div class="o-container">
-                    <div class="o-layout o-layout--middle">
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Agitated</p>
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <input type="range" min="0" max="10" class="slider" ng-model="agitatedCalmSlider">
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Calm</p>
-                        </div>
-                    </div>
-                    <div class="o-layout o-layout--middle">
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Agitated</p>
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <input type="range" min="0" max="10" class="slider" ng-model="agitatedCalmSlider">
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Calm</p>
-                        </div>
-                    </div>
-                    <div class="o-layout o-layout--middle">
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Agitated</p>
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <input type="range" min="0" max="10" class="slider" ng-model="agitatedCalmSlider">
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Calm</p>
-                        </div>
-                    </div>
-                    <div class="o-layout o-layout--middle">
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Agitated</p>
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <input type="range" min="0" max="10" class="slider" ng-model="agitatedCalmSlider">
-                        </div>
-                        <div class="o-layout__item u-width-1/3">
-                            <p class="text-center">Calm</p>
-                        </div>
+                <div ng-repeat="slider in sliders">
+                    <div class="o-container">
+                            <div class="o-layout o-layout--middle">
+                                    <div class="o-layout__item u-width-1/3">
+                                        <p class="text-center">{{slider.minValueLabel}}</p>
+                                    </div>
+                                    <div class="o-layout__item u-width-1/3">
+                                        <input type="range" min="0" ng-change="calculateSuggestedFilms()" max="10" class="slider" ng-model="slider.slideValue">
+                                    </div>
+                                    <div class="o-layout__item u-width-1/3">
+                                        <p class="text-center">{{slider.maxValueLabel}}</p>
+                                    </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </section>
 
+
         <div class="o-container">
-                <div class="o-layout o-layout--center o-layout--middle o-layout--spaced">
-                    <div class="o-layout__item u-width-1/5 u-padding-all">
-                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
-                            <img src="assets/images/12_years_a_slave.jpg">
-                            <div class="c-divider"></div>
-                            <p> temp text </p>
+                <div class="custom-card-height o-layout o-layout--center o-layout--middle o-layout--spaced">
+                        <div ng-repeat="film in suggestedFilms track by $index" class="o-layout__item u-width-1/5 u-padding-all">
+                            <div class=" c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                                <img ng-show="film.imagePath" ng-src="{{film.imagePath}}">
+                                <div class="c-divider"></div>
+                                <p>  {{film.name}} </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="o-layout__item u-width-1/5 u-padding-all">
-                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
-                            <img src="assets/images/elf.jpg">
-                            <div class="c-divider"></div>
-                            <p> temp text </p>
-                        </div>
-                    </div>
-                    <div class="o-layout__item u-width-1/5 u-padding-all">
-                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
-                            <img src="assets/images/forrest_gump.jpg">
-                            <div class="c-divider"></div>
-                            <p> temp text </p>
-                        </div>
-                    </div>
-                    <div class="o-layout__item u-width-1/5 u-padding-all">
-                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
-                            <img src="assets/images/gladiator.jpg">
-                            <div class="c-divider"></div>
-                            <p> temp text </p>
-                        </div>
-                    </div>
-                    <div class="o-layout__item u-width-1/5 u-padding-all">
-                        <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
-                            <img src="assets/images/home_alone.jpg">
-                            <div class="c-divider"></div>
-                            <p> temp text </p>
-                        </div>
-                    </div>
                 </div>
-            </div>
+        </div>
     </div>
-</div>
+</div>                        
+
