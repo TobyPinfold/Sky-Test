@@ -45,8 +45,9 @@
         <div class="o-container">
                 <div class="custom-card-height o-layout o-layout--center o-layout--middle o-layout--spaced">
                         <div ng-repeat="film in suggestedFilms track by $index" class="o-layout__item u-width-1/5 u-padding-all">
-                            <div class=" c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
-                                <img ng-show="film.imagePath" ng-src="{{film.imagePath}}">
+                            <div class="c-tile c-tile--solid-white u-margin-bottom-large no-anim in-view">
+                                <img class="card-image fade" ng-show="film.imagePath" ng-src="{{film.imagePath}}">
+                                <img class="card-image fade" ng-show="film.imagePath == null" src="assets/images/placeholder.png">
                                 <div class="c-divider"></div>
                                 <p>  {{film.name}} </p>
                             </div>

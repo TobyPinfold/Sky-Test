@@ -24,8 +24,8 @@ var FilmModel = function() {
         this.agitatedCalmValue = agitatedCalmValue;
     }
 
-    this.setHappySadValue = (HappySadValue) => {
-        this.HappySadValue = HappySadValue;
+    this.setHappySadValue = (happySadValue) => {
+        this.happySadValue = happySadValue;
     }
 
     this.setTiredWideAwakeValue = (tiredWideAwakeValue) => {

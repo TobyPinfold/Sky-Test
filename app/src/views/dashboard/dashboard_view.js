@@ -10,7 +10,8 @@ angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective', '
   }])
 
   .controller('View1Ctrl', ['$scope', 'FilmService','$interval', function ($scope, filmService, $interval) {
-    
+  
+
     var agitatedCalmSlider = new SliderOptions();
     agitatedCalmSlider.setMinValueLabel("Agitated");
     agitatedCalmSlider.setMaxValueLabel("Calm");
@@ -51,33 +52,44 @@ angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective', '
     });
 
 
-
     $scope.calculateSuggestedFilms = () => {
-      console.log($scope.sliders);
-      console.log($scope.allFilms);
+      var filteredFilms = Array();
+
       if($scope.allFilms != null) {
         
-        var filteredFilms = {};
-        var UpperAndLowerBounds = 2;
+        var allFilms = _.cloneDeep($scope.allFilms);
+        var maxBounds= 6;
         
-        Object.keys($scope.allFilms).forEach((key) => {
-          var film = $scope.allFilms[key];
-          var isInBounds = isFilmInBounds(film, UpperAndLowerBounds);
-  
-            if(isInBounds) {
-              filteredFilms[key] = film;
+        for(var UpperAndLowerBounds = 0; UpperAndLowerBounds < maxBounds && getNumberOfItemsInStaticSizedArray(filteredFilms) < 5; UpperAndLowerBounds++) {
+          var keys = Object.keys(allFilms);
+          for(var index = 0; index < keys.length; index++){
+            if(getNumberOfItemsInStaticSizedArray(filteredFilms) < 5) {
+              var key = keys[index];
+              var film = allFilms[key];
+              var isInBounds = isFilmInBounds(film, UpperAndLowerBounds);
+                if(isInBounds) {
+                  var copyFilm = _.cloneDeep(film);
+                  filteredFilms.push(copyFilm);
+                  delete allFilms[key];
+                  $scope.suggestedFilms = filteredFilms;
+                }
+            } else {
+              return;
             }
-        });
-     
-        var replacementSuggestedFilms = new Array(5);
-
-        for(var i = 0; i < 5; i++) {
-          replacementSuggestedFilms[i] = filteredFilms[i];
-          console.log();
+          }  
         }
+        $scope.suggestedFilms = filteredFilms;
+    }
 
-        $scope.suggestedFilms = replacementSuggestedFilms;
-
+    function getNumberOfItemsInStaticSizedArray(array){
+      var counter = 0;
+      _.each(array, (entry) =>{
+        if(entry != null && entry !== 'undefined') {
+          counter++;
+        }
+      });
+      console.log(counter);
+      return counter;
     }
 
     function isFilmInBounds(film, bounds) {
@@ -87,27 +99,22 @@ angular.module('myApp.dashboardView', ['ngRoute', 'myApp.fileUploadDirective', '
       var tiredWideAwakeSliderValue = $scope.sliders["tiredWideAwakeSlider"].slideValue;
       var scaredFearlessSliderValue = $scope.sliders["scaredFearlessSlider"].slideValue;
       
-      console.log(agitatedCalmSliderValue, happySadSliderValue, tiredWideAwakeSliderValue, scaredFearlessSliderValue )
-
-
       var agitatedCalmSliderWithinBounds =
-      film.agitatedCalmValue < (agitatedCalmSliderValue + bounds) && 
-      film.agitatedCalmValue > (agitatedCalmSliderValue - bounds);
-      console.log(film.agitatedCalmValue, agitatedCalmSliderValue, bounds );
+      film.agitatedCalmValue <= (agitatedCalmSliderValue + bounds) && 
+      film.agitatedCalmValue >= (agitatedCalmSliderValue - bounds);
 
       var happySadSliderWithinBounds =
-      film.happySadValue < (happySadSliderValue + bounds) && 
-      film.happySadValue > (happySadSliderValue - bounds);
+      film.happySadValue <= (happySadSliderValue + bounds) && 
+      film.happySadValue >= (happySadSliderValue - bounds);
 
       var tiredWideAwakeSlider =
-      film.tiredWideAwakeValue < (tiredWideAwakeSliderValue + bounds) && 
-      film.tiredWideAwakeValue > (tiredWideAwakeSliderValue - bounds);
+      film.tiredWideAwakeValue <= (tiredWideAwakeSliderValue + bounds) && 
+      film.tiredWideAwakeValue >= (tiredWideAwakeSliderValue - bounds);
 
       var scaredFearlessSliderWithinBounds =
-      film.tiredWideAwakeValue < (scaredFearlessSliderValue + bounds) && 
-      film.tiredWideAwakeValue > (scaredFearlessSliderValue - bounds);
+      film.tiredWideAwakeValue <= (scaredFearlessSliderValue + bounds) && 
+      film.tiredWideAwakeValue >= (scaredFearlessSliderValue - bounds);
 
-      console.log(agitatedCalmSliderWithinBounds && happySadSliderWithinBounds && tiredWideAwakeSlider && scaredFearlessSliderWithinBounds);
       return agitatedCalmSliderWithinBounds && happySadSliderWithinBounds && tiredWideAwakeSlider && scaredFearlessSliderWithinBounds;
     }
   }

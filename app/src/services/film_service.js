@@ -73,7 +73,6 @@ angular.module('myApp.filmService', [])
 
             filmModels[id] = filmModel;
         }
-        console.log(filmModels);
         return filmModels;
     }
 

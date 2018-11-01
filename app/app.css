@@ -8,13 +8,38 @@
     z-index: 100;
 }
 
+body {
+    overflow-x: visible !important;
+}
+
 .custom-card-height {
     height: 250px !important;
+}
+
+.card-image {
+    height: 200px;
 }
 
 .text-center {
     text-align: center;
 }
+
+.fade.ng-hide {
+    opacity: 0;
+  }
+  
+  .fade.ng-hide-remove,
+  .fade.ng-hide-add {
+    display: block !important; /* or inline-block, as appropriate */
+  }
+  
+  .fade.ng-hide-remove {
+    transition: all linear 1000ms;
+  }
+  
+  .fade.ng-hide-add {
+    transition: all linear 500ms;
+  }
 
 .slider {
     width: 100%;
