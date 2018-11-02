@@ -1,4 +1,4 @@
-<div ng-controller="View1Ctrl">
+
     <div class="app-toolkit">
         <header class="top-bar">
             <div class="o-container o-container--wide">
@@ -30,7 +30,7 @@
                                         <p class="text-center">{{slider.minValueLabel}}</p>
                                     </div>
                                     <div class="o-layout__item u-width-1/3">
-                                        <input type="range" min="0" ng-change="calculateSuggestedFilms()" max="10" class="slider" ng-model="slider.slideValue">
+                                        <input type="range" min="0" ng-change="getSuggestions()" max="10" class="slider" ng-model="slider.slideValue">
                                     </div>
                                     <div class="o-layout__item u-width-1/3">
                                         <p class="text-center">{{slider.maxValueLabel}}</p>
@@ -44,7 +44,7 @@
 
         <div class="o-container">
                 <div class="o-layout o-layout--center o-layout--middle o-layout--spaced">
-                        <div ng-repeat="film in suggestedFilms track by $index" class="custom-card o-layout__item u-width-1/5 u-padding-all">
+                        <div ng-repeat="film in displayedSuggestedFilms.listOfFilms" class="custom-card o-layout__item u-width-1/5 u-padding-all">
                             <article class="c-tile c-tile--square potrait has-focus">
                                 <div class="c-tile__link c-shine-context" href="#">
                                   <div class="c-tile__content">
@@ -61,5 +61,4 @@
                 </div>
         </div>
     </div>
-</div>                        
 

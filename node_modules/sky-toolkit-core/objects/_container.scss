@@ -1,0 +1,11 @@
+/* ==========================================================================
+   OBJECTS / #CONTAINER
+   ========================================================================== */
+
+.o-container {
+  max-width: $global-container-width;
+  padding-right: $global-spacing-unit;
+  padding-left: $global-spacing-unit;
+  margin-right: auto;
+  margin-left: auto;
+}

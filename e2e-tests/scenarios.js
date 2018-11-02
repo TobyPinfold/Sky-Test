@@ -12,7 +12,6 @@ describe('my app', function() {
 
 
   describe('mainView', function() {
-
     beforeEach(function() {
       browser.get('index.html#!/mainView');
     });
